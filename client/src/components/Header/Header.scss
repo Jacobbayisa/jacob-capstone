@@ -11,9 +11,8 @@ $nav-color:#0D89DB ;
     flex-wrap:wrap;
     justify-content: space-between;
     align-items: center;
-    border-bottom:1px solid $nav-color;
+    box-shadow:0 2px 20px lightgray;
     &:hover{
-        border-color:gold;
         cursor:zoom-in;
     }
     @include tablet{

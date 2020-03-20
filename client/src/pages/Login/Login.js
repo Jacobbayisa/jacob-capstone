@@ -19,8 +19,8 @@ const Login = () =>{
            </form>
            
            <div className="login__button-cont">
-                <button className="login__google">Loggin with Google</button>
-                <button className="login__facebook">Loggin with Facebook </button>
+                <button className="login__google">Sign in with Google</button>
+                <button className="login__facebook">Sign in with Facebook </button>
            </div>
        </div>
     )

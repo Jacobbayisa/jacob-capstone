@@ -1,29 +1,61 @@
 import React, {useState} from 'react';
 import './upload.scss';
+import axios from 'axios';
+
+const url = "http://localhost:8080/rental";
 
 
 const Upload = ()=>{
-    const [checkboxValue,setCheckboxValue] = useState(false);
+    const [checkboxValue,setCheckboxValue] = useState("no");
 
     const checkHandler = () =>{
         let checkbox = document.querySelector('.upload__checkbox');
         if(checkbox.checked){
-          setCheckboxValue(true);
+          setCheckboxValue('yes');
         } else{
-          setCheckboxValue(false);
+          setCheckboxValue('no');
         } 
+      }
+
+      const submitHandler = (event) =>{
+          event.preventDefault();
+          const type = event.target.type.value;
+          const beds = event.target.beds.value.trim();
+          const bathrooms = event.target.bathrooms.value.trim();
+          const furnished = event.target.checkbox.value;
+          const adress = event.target.adress.value.trim();
+          const price = event.target.price.value.trim();
+          const image = event.target.image.value.trim();
+          const description = event.target.description.value.trim();
+          //console.log(type + beds + bathrooms + furnished + adress + price + image + description);
+          axios.post(url,{type,beds,bathrooms,furnished,adress,price,image,description})
+                .then(res =>{
+                    console.log(res);
+
+                })
+                .catch(err => {
+                    console.log("error");
+                });
       }
     return (
         <div className ="upload">
-            <form className ="upload__form">
+            <form className ="upload__form" method="POST" onSubmit ={submitHandler}>
                 <div className="upload__input-cont">
                     <label htmlFor="type-of-house" className="upload__labels">Type of House</label>
-                    <select name="type-of-house">
-                        <option value="house">House</option>
-                        <option value ="apartment">Apartment </option>
-                        <option value ="basement">Basement </option>
-                        <option value ="studio"> Studio </option>
+                    <select name="type">
+                        <option value="House">House</option>
+                        <option value ="Apartment">Apartment </option>
+                        <option value ="Basement">Basement </option>
+                        <option value ="Studio"> Studio </option>
                     </select>
+                </div>
+                <div className= "upload__input-cont">
+                    <label htmlFor="beds" className="upload__labels">No of beds</label>
+                    <input name="beds" type="number"/>
+                </div>
+                <div className= "upload__input-cont">
+                    <label htmlFor="baths" className="upload__labels">No of bathrooms</label>
+                    <input name="bathrooms" type="number"/>
                 </div>
                 <div className="upload__input-cont">
                     <label className="upload__furnished-label">Is Furnished? </label>
@@ -33,16 +65,8 @@ const Upload = ()=>{
                     </label>
                 </div>
                 <div className= "upload__input-cont">
-                    <label htmlFor="Zipcode" className="upload__labels">ZipCode</label>
-                    <input name="zipcode" type=""/> 
-                </div>
-                <div className= "upload__input-cont">
-                    <label htmlFor="beds" className="upload__labels">No of beds</label>
-                    <input name="beds" type="number"/>
-                </div>
-                <div className= "upload__input-cont">
-                    <label htmlFor="baths" className="upload__labels">Number of bathrooms</label>
-                    <input name="" type="number"/>
+                    <label htmlFor="adress" className="upload__labels">Adress</label>
+                    <input name="adress" type="text"/> 
                 </div>
                 <div className= "upload__input-cont">
                     <label htmlFor="date" className="upload__labels">Date of Availablity</label>
@@ -51,6 +75,14 @@ const Upload = ()=>{
                 <div className= "upload__input-cont">
                     <label htmlFor="price" className="upload__labels">Price</label>
                     <input name="price" type="number" /> 
+                </div>
+                <div className= "upload__input-cont">
+                    <label htmlFor="image" className="upload__labels">Upload Image</label>
+                    <input name="image" type="file" size="60" className="upload__image"/> 
+                </div>
+                <div className= "upload__textarea-cont">
+                    <label htmlFor="description" className="upload__labels">Description</label>
+                    <textarea name="description" cols ="35" rows ="3"  /> 
                 </div>
                 <div className="upload__submit-cont">
                     <button type ="submit" className="upload__submit">Submit</button>
