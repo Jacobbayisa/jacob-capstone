@@ -1,0 +1,95 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.register{
+    width:80%;
+    background-color:$form-background;
+    height:auto;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:16px;
+    margin-bottom:16px;
+    padding:5%;
+    border-radius:10px;
+    @include tablet{
+        width:40%;
+        padding:3%;
+        margin-top:40px;
+    }
+    &__form{
+        width:80%;
+    }
+    &__input-cont{
+        width:90%;
+        background-color:white;
+        margin:8px;
+        border-radius:5px;
+        padding:5px 10px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:center;
+        @include tablet{
+            width:95%;
+            height:2.5rem;
+            background-color:white;
+            margin:8px;
+            border-radius:5px;
+            padding:5px 10px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        label{
+            padding:0 8px;
+            width:20%;
+            @include tablet{
+                width:40%;
+                border-right:1px solid black; 
+            }
+        }
+        input{
+            width:80%;
+            height:2rem;
+            border:1px solid rgba(0,0,0,0.2);
+            border-radius:5px;
+            @include tablet{
+                width:50%;
+                height:2rem;
+            }
+        }
+    }
+    &__submit-cont{
+        width:90%;
+        box-sizing:border-box;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: flex-end;
+        margin: 3vw 0 0;
+        padding:0;
+    }
+    &__submit{
+        background-color:gold;
+        border:none;
+        border-radius:10px;
+        font-weight:bold;
+        width:50%;
+        height:2.5rem;
+        padding:10px;
+        font-size:1.2rem;
+        @include tablet{
+            height:3rem;
+        }
+    }
+    &__button-cont{
+        margin-top:5vw;
+        width:90%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        @include tablet{
+            justify-content: center;
+        }
+    }
+}

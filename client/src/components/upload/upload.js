@@ -7,6 +7,8 @@ const url = "http://localhost:8080/rental";
 
 const Upload = ()=>{
     const [checkboxValue,setCheckboxValue] = useState("no");
+    const [selectedImage,setSelectedImage] = useState(null);
+
 
     const checkHandler = () =>{
         let checkbox = document.querySelector('.upload__checkbox');
@@ -17,26 +19,40 @@ const Upload = ()=>{
         } 
       }
 
-      const submitHandler = (event) =>{
-          event.preventDefault();
-          const type = event.target.type.value;
-          const beds = event.target.beds.value.trim();
-          const bathrooms = event.target.bathrooms.value.trim();
-          const furnished = event.target.checkbox.value;
-          const adress = event.target.adress.value.trim();
-          const price = event.target.price.value.trim();
-          const image = event.target.image.value.trim();
-          const description = event.target.description.value.trim();
-          //console.log(type + beds + bathrooms + furnished + adress + price + image + description);
-          axios.post(url,{type,beds,bathrooms,furnished,adress,price,image,description})
-                .then(res =>{
-                    console.log(res);
+    const onChangeHandler = (event) =>{
+        setSelectedImage(event.target.files[0]);
+        console.log(selectedImage);
+    }
 
-                })
-                .catch(err => {
-                    console.log("error");
-                });
-      }
+    const submitHandler = (event) =>{
+        event.preventDefault();
+        const type = event.target.type.value;
+        const beds = event.target.beds.value.trim();
+        const bathrooms = event.target.bathrooms.value.trim();
+        const furnished = event.target.checkbox.value;
+        const adress = event.target.adress.value.trim();
+        const price = event.target.price.value.trim();
+        const description = event.target.description.value.trim();
+
+        const data = new FormData();
+        data.append('file',selectedImage);
+        data.append('type',type);
+        data.append('beds',beds);
+        data.append('bathrooms',bathrooms);
+        data.append('furnished',furnished);
+        data.append('adress',adress);
+        data.append('price',price);
+        data.append('description',description);
+
+        axios.post(url,data,{})
+            .then(res =>{
+                console.log(res);
+
+            })
+            .catch(err => {
+                console.log("error");
+            });
+    }
     return (
         <div className ="upload">
             <form className ="upload__form" method="POST" onSubmit ={submitHandler}>
@@ -78,7 +94,7 @@ const Upload = ()=>{
                 </div>
                 <div className= "upload__input-cont">
                     <label htmlFor="image" className="upload__labels">Upload Image</label>
-                    <input name="image" type="file" size="60" className="upload__image"/> 
+                    <input name="image" type="file" onChange ={onChangeHandler} className="upload__image"/> 
                 </div>
                 <div className= "upload__textarea-cont">
                     <label htmlFor="description" className="upload__labels">Description</label>
