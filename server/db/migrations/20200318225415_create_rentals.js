@@ -9,6 +9,7 @@ exports.up = knex =>{
         table.integer("price").notNullable();
         table.string("image");
         table.string("description");
+        table.string("contact");
         table
             .integer("user_id")
             .unsigned()

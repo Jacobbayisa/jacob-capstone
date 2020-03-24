@@ -5,11 +5,11 @@ import logo from "../../assets/images/logo.png"
 const Header = () => {
     return(
         <div className="header">
-            <img className="header__logo" src={logo}/>
+            <Link to ="/"><img className="header__logo" src={logo}/> </Link>
             <ul className="header__nav">
-                <Link className="header__link" to ="/" > Rent House </Link>
+                <Link className="header__link" to ="/login" > Rent House </Link>
                 <Link className="header__link" to ="/login"> Signin</Link>
-                <Link className="header__link" to ="/signup"> About us </Link>
+                <Link className="header__link" to ="/signup"> Create Account </Link>
             </ul>
         </div>
     )

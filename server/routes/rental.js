@@ -5,7 +5,7 @@ const multer = require('multer');
 
 var storage = multer.diskStorage({
     destination:(req,file,cb) =>{
-        cb(null,'public')
+        cb(null,'../client/src/public/upload')
     },
     filename: (req,file,cb) =>{
         cb(null, Date.now() + '-' +file.originalname);
@@ -27,12 +27,11 @@ router
     .post((req,res)=>{
         upload(req,res, (err) =>{
             if(err instanceof multer.MulterError){
-                return res.status(500).json(err + "unaable to uploade image");
+                return res.status(500).json(err);
             }else if (err){
-                return res.status(500).json(err + "unable to upload image 2");
+                return res.status(500).json(err);
             }
-            console.log(req.file.path);
-            console.log(req.body.beds);
+            console.log(req.file.filename);
             new Rental ({
                 type:req.body.type,
                 beds:req.body.beds,
@@ -40,8 +39,9 @@ router
                 furnished:req.body.furnished,
                 adress:req.body.adress,
                 price:req.body.price,
-                image:req.file.path,
+                image:req.file.filename,
                 description:req.body.description,
+                contact:req.body.contact,
                 user_id:2
             })
             .save()

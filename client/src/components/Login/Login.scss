@@ -1,0 +1,151 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.login{
+    width:80%;
+    background-color:$form-background;
+    height:auto;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:16px;
+    margin-bottom:16px;
+    padding:5%;
+    border-radius:10px;
+    @include tablet{
+        width:650px;
+        padding:3%;
+        margin-top:40px;
+    }
+    &__input-cont{
+        width:90%;
+        background-color:white;
+        margin:8px;
+        border-radius:5px;
+        padding:5px 10px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:center;
+        @include tablet{
+            width:95%;
+            height:2.5rem;
+            background-color:white;
+            margin:8px;
+            border-radius:5px;
+            padding:5px 10px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        &__labels{
+            padding:0 8px;
+            width:60vw;
+            @include tablet{
+                width:40%;
+                border-right:1px solid black; 
+            }
+        }
+        input{
+            width:60%;
+            height:2rem;
+            border:1px solid rgba(0,0,0,0.2);
+            border-radius:5px;
+            @include tablet{
+                width:50%;
+                height:2rem;
+            }
+        }
+    }
+    &__submit-cont{
+        width:95%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: flex-end;
+        margin: 3vw 0 0;
+        padding:0;
+    }
+    &__submit{
+        background-color:gold;
+        border:none;
+        border-radius:10px;
+        font-weight:bold;
+        width:40%;
+        height:2.5rem;
+        padding:5px;
+        font-size:1.2rem;
+        @include tablet{
+            height:3rem;
+        }
+    }
+    &__button-cont{
+        margin-top:5vw;
+        width:90%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        @include tablet{
+            justify-content: center;
+        }
+    }
+    &__google{
+        width:100%;
+        margin: 10px 0;
+        font-size:1.2rem;
+        border:none;
+        border-radius:10px;
+        padding:10px 5px;
+        color:white;
+        background-color:brown;
+        @include tablet{
+            padding:15px 10px;
+            width:80%;
+        }
+    }
+    &__facebook{
+        width:100%;
+        margin:5px;
+        font-size:1.2rem;
+        padding:10px 5px;
+        border:none;
+        border-radius:10px;
+        color:white;
+        background-color:blue;
+        @include tablet{
+            width:80%;
+            padding: 15px 10px;
+        }
+    }
+    &__create-account{
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+        color:white;
+        margin-left:5%;
+        text-decoration:none;
+        border-radius:10px;
+        width:80%;
+        @include tablet{
+            justify-content: center;
+            width:70%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size:1rem;
+        }
+        p {
+            margin-right:20px;
+            @include tablet{
+                margin-right:0;
+            }
+        }
+        &__link {
+            color:white;
+            @include tablet{
+                margin-left: 20px;
+            }
+            &:hover{
+                color:greenyellow;
+            }
+        }
+    }
+}

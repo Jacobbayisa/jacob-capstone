@@ -1,26 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import SignUp from './pages/SignUp/SignUp';
+import LoginPage from './pages/LoginPage/LoginPage';
+import SignupPage from './pages/SignupPage/SignupPage';
 import Header from './components/Header/Header';
 import Upload from './components/upload/upload';
+import {AuthContext} from './context/auth';
+import Admin from "./pages/Admin/Admin";
+import PrivateRoute from './PrivateRoute';
 
 function App() {
-  
+  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+  const [authTokens, setAuthTokens] = useState(existingTokens);
+
+  const setTokens = (data) =>{
+    localStorage.setItem("tokens",JSON.stringify(data));
+    setAuthTokens(data);
+  }
 
   return (
     <div className="App">
-      <Router>
-        <Header/>
-        <Switch>
-          <Route exact path ="/" component ={Home}/>
-          <Route path = "/login" component ={Login}/>
-          <Route path = "/signup" component ={SignUp}/>
-          <Route path = "/upload" component = {Upload}/>
-        </Switch>
-      </Router>
+      <AuthContext.Provider value ={{ authTokens, setAuthTokens:setTokens}}>
+        <Router>
+          <Header/>
+          <Switch>
+            <Route exact path ="/" component ={Home}/>
+            <Route path = "/login" component ={LoginPage}/>
+            <Route path = "/signup" component ={SignupPage}/>
+            <PrivateRoute path = "/upload" component = {Upload}/>
+            <PrivateRoute path="/admin" component={Admin} />
+          </Switch>
+        </Router>
+        </AuthContext.Provider>
     </div>
   );
 }

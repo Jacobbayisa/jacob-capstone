@@ -56,9 +56,10 @@ $nav-color:#0D89DB ;
         color:$nav-color;
         font-weight:bold;
         font-size:1.2rem;
-        border:2px solid white;
+        border-color:1px solid $nav-color;
         @include tablet{
             padding:10px;
+            margin:0 20px;
         }
         &:hover{
             color:gold;

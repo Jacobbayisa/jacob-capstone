@@ -1,0 +1,35 @@
+import React from 'react';
+import {Link} from "react-router-dom";
+import './Login.scss';
+
+const Login = () =>{
+    return(
+        <div className="login">
+           <form>
+               <div className="login__input-cont"> 
+                <label htmlFor="username">User Name</label>
+                <input  type ="text" name="username" required/>
+               </div>
+               <div className="login__input-cont"> 
+                <label htmlFor="password">Password</label>
+                <input name="password" type ="password" required/>
+               </div>
+               <div className="login__submit-cont">
+                    <button type="submit" className="login__submit">Login</button>
+               </div>
+           </form>
+           
+           <div className="login__button-cont">
+                <button className="login__google">Sign in with Google</button>
+                <button className="login__facebook">Sign in with Facebook </button>
+           </div>
+           <div className="login__create-account"> 
+            <p>Do Not have account?</p>
+            <Link to="/signup"> <a href="" className="login__create-account__link"> Sign Up Here </a> </Link>
+           </div>
+           
+       </div>
+    )
+}
+
+export default Login;

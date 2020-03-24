@@ -81,20 +81,20 @@ const Upload = ()=>{
                     </label>
                 </div>
                 <div className= "upload__input-cont">
-                    <label htmlFor="adress" className="upload__labels">Adress</label>
+                    <label htmlFor="adress" className="upload__labels" required>Adress</label>
                     <input name="adress" type="text"/> 
                 </div>
                 <div className= "upload__input-cont">
-                    <label htmlFor="date" className="upload__labels">Date of Availablity</label>
-                    <input name="date" type="date"/> 
+                    <label htmlFor="email" className="upload__labels" required>Email</label>
+                    <input name="email" type="email"/> 
                 </div>
                 <div className= "upload__input-cont">
-                    <label htmlFor="price" className="upload__labels">Price</label>
+                    <label htmlFor="price" className="upload__labels" required>Price</label>
                     <input name="price" type="number" /> 
                 </div>
                 <div className= "upload__input-cont">
                     <label htmlFor="image" className="upload__labels">Upload Image</label>
-                    <input name="image" type="file" onChange ={onChangeHandler} className="upload__image"/> 
+                    <input name="image" type="file" onChange ={onChangeHandler} className="upload__image" required/> 
                 </div>
                 <div className= "upload__textarea-cont">
                     <label htmlFor="description" className="upload__labels">Description</label>
