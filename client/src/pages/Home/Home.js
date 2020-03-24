@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import UploadRental from "../../components/UploadRental/UploadRental";
-import img1 from "../../public/upload/img1.jpg";
+import RentalDisplay from "../../components/RentalDisplay/RentalDisplay";
 import './Home.scss';
 
 const url = 'http://localhost:8080/rental';
@@ -29,7 +28,7 @@ class Main extends Component{
                         this.state.rentalArr.map((rental,index) =>{
                             
                             return (
-                                <UploadRental 
+                                <RentalDisplay 
                                     img={require(`../../public/upload/${rental.image}`)}
                                     type={rental.type}
                                     adress={rental.adress}

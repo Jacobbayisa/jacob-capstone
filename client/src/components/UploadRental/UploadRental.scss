@@ -1,61 +1,163 @@
 @import "../../styles/partials/mixins";
-$nav-color:#0D89DB ;
-.rental{
-    width: 90%;
-    margin-left:auto;
+@import "../../styles/partials/variables";
+
+.upload{
+    width:80%;
+    background-color:$form-background;
+    height:auto;
     margin-right:auto;
-    padding:16px 16px;
-    align-self: 100%;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: center;
+    margin-left:auto;
+    margin-top:16px;
+    margin-bottom:16px;
+    padding:5%;
     border-radius:10px;
-    box-shadow:0px 5px 5px rgba(0,0,0,0.3);
-    @include tablet {
-        width:45%;
+    @include tablet{
+        width:40%;
+        padding:3%;
+        margin-top:40px;
     }
-    @include desktop{
-        width:30%;
-    }
-    &__desc-cont{
-        width:100%;
-        padding:20px;
-        background:rgba(157, 148, 189,0.2);
-        color:darkslategray;
-        border:1px solid lightgray;
+    &__input-cont{
+        width:90%;
+        background-color:white;
+        margin:8px;
+        border-radius:5px;
+        padding:5px 10px;
         display:flex;
         flex-wrap:wrap;
-        justify-content: space-between;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        justify-content:space-between;
+        align-items:center;
+        @include tablet{
+            width:95%;
+            height:2.5rem;
+            background-color:white;
+            margin:8px;
+            border-radius:5px;
+            padding:5px 10px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        &__labels{
+            padding:0 8px;
+            width:60vw;
+            @include tablet{
+                width:40%;
+                border-right:1px solid black; 
+            }
+        }
+        input, select{
+            width:30vw;
+            height:2rem;
+            border:1px solid rgba(0,0,0,0.2);
+            border-radius:5px;
+            @include tablet{
+                width:50%;
+                height:2rem;
+            }
+        }  
     }
-    &__img{
-        width:100%;
-        overflow: hidden;
+    &__switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        /* Hide default HTML checkbox */
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+    &__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background-color:lightgray;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+        &:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+          border-radius: 50%;
+        }
     }
-    &__title{
-        color:$nav-color;
-    }
-    &__adress{
-        color:black;
-        margin:0;
-    }
-    &__price{
-        flex-basis: 100%;
-        color:darkcyan;
-    }
-    &__description{
-        color:darkblue;
-    }
-    &__contact{
-        flex-basis:100%;
-        padding: 10px;
-        text-decoration:none;
-        text-align:center;
-        background-color:$nav-color;
-        color:white;
-        font-size:1.5rem;
+    &__textarea-cont{
+        width:90%;
+        background-color:white;
+        margin:8px;
         border-radius:5px;
-        font-size:bolder;
+        padding:5px 10px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        align-items:center;
+        @include tablet{
+            width:95%;
+            background-color:white;
+            margin:8px;
+            border-radius:5px;
+            padding:5px 10px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        textarea{
+            width:30vw;
+            border:1px solid rgba(0,0,0,0.2);
+            border-radius:5px;
+            @include tablet{
+                width:50%;
+            }
+        }
+    }
+    &__submit-cont{
+        width:90%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: flex-end;
+        margin: 3vw 0 0;
+        padding:0;
+    }
+    &__submit{
+        background-color:gold;
+        border:none;
+        border-radius:10px;
+        font-weight:bold;
+        width:40%;
+        height:2.5rem;
+        padding:5px;
+        font-size:1.2rem;
+        @include tablet{
+            height:3rem;
+        }
     }
 }
+
+/* The slider */
+.upload__checkbox:checked + .upload__slider {
+    background-color: #47A708;
+  }
+  
+  .upload__checkbox:focus + .upload__slider {
+    box-shadow: 0 0 1px #47A708 ;
+  }
+  
+  .upload__checkbox:checked + .upload__slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  

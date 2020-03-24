@@ -5,7 +5,7 @@ import Home from './pages/Home/Home';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import Header from './components/Header/Header';
-import Upload from './components/upload/upload';
+import UploadRental from './components/UploadRental/UploadRental';
 import {AuthContext} from './context/auth';
 import Admin from "./pages/Admin/Admin";
 import PrivateRoute from './PrivateRoute';
@@ -28,7 +28,8 @@ function App() {
             <Route exact path ="/" component ={Home}/>
             <Route path = "/login" component ={LoginPage}/>
             <Route path = "/signup" component ={SignupPage}/>
-            <PrivateRoute path = "/upload" component = {Upload}/>
+            <Route path = "/upload" component = {UploadRental}/>
+            {/* <PrivateRoute path = "/upload" component = {Upload}/> */}
             <PrivateRoute path="/admin" component={Admin} />
           </Switch>
         </Router>
