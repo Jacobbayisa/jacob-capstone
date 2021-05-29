@@ -1,0 +1,27 @@
+module.exports =[
+    {
+        username:"Jacob",
+        email:"bayisagobu@gmail.com",
+        password:"12345"
+    },
+    {
+        username:"Tamirat",
+        email:"tamirab1@gmail.com",
+        password:"12345"
+    },
+    {
+        username:"Michael",
+        email:"michel2@gmail.com",
+        password:"12345"
+    },
+    {
+        username:"Sara",
+        email:"Saragobu@gmail.com",
+        password:"12345"
+    },
+    {
+        username:"chaltu",
+        email:"chaltu2@gmail.com",
+        password:"12345"
+    },
+]

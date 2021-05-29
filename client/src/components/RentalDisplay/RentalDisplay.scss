@@ -1,0 +1,61 @@
+@import "../../styles/partials/mixins";
+$nav-color:#0D89DB ;
+.rental{
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:16px 16px;
+    align-self: 100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    border-radius:10px;
+    box-shadow:0px 5px 5px rgba(0,0,0,0.3);
+    @include tablet {
+        width:45%;
+    }
+    @include desktop{
+        width:30%;
+    }
+    &__desc-cont{
+        width:100%;
+        padding:20px;
+        background:rgba(157, 148, 189,0.2);
+        color:darkslategray;
+        border:1px solid lightgray;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    &__img{
+        width:100%;
+        overflow: hidden;
+    }
+    &__title{
+        color:$nav-color;
+    }
+    &__adress{
+        color:black;
+        margin:0;
+    }
+    &__price{
+        flex-basis: 100%;
+        color:darkcyan;
+    }
+    &__description{
+        color:darkblue;
+    }
+    &__contact{
+        flex-basis:100%;
+        padding: 10px;
+        text-decoration:none;
+        text-align:center;
+        background-color:$nav-color;
+        color:white;
+        font-size:1.5rem;
+        border-radius:5px;
+        font-size:bolder;
+    }
+}
