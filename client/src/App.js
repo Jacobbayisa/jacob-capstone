@@ -29,7 +29,7 @@ function App() {
             <Route path = "/login" component ={LoginPage}/>
             <Route path = "/signup" component ={SignupPage}/>
             <Route path = "/upload" component = {UploadRental}/>
-            {/* <PrivateRoute path = "/upload" component = {Upload}/> */}
+            {/* <PrivateRoute path = "/upload" component = {UploadRental}/> */}
             <PrivateRoute path="/admin" component={Admin} />
           </Switch>
         </Router>

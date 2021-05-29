@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header">
             <Link to ="/"><img className="header__logo" src={logo}/> </Link>
             <ul className="header__nav">
-                <Link className="header__link" to ="/upload" > Rent House </Link>
+                <Link className="header__link" to ="/upload" > Rent  Your House </Link>
                 <Link className="header__link" to ="/login"> Signin</Link>
                 <Link className="header__link" to ="/signup"> Create Account </Link>
             </ul>

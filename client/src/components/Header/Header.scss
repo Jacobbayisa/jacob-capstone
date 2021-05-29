@@ -55,7 +55,9 @@ $nav-color:#0D89DB ;
         text-decoration:none;
         color:$nav-color;
         font-weight:bold;
+       // word-spacing:0.1rem;
         font-size:1.2rem;
+        letter-spacing: 0.001rem;
         border-color:1px solid $nav-color;
         @include tablet{
             padding:10px;
